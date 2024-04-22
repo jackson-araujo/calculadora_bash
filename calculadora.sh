@@ -1,3 +1,9 @@
+# Verifica se o programa 'awk' existe.
+awk -V 2&> /dev/null
+
+# Caso o resultado da pesquisa acima seja falso, executa a instalação do programa awk.
+if (( $? != 0 )); then sudo apt install gawk -y && clear; fi
+
 # Execução do laço contínuo para exibição do menu do script (calculadora). Exceto se digitar um argumento inválido ou zero para sair.
 while true
 do
@@ -29,8 +35,15 @@ do
 	divisao () {
 	local NUMERO1=$1
 	local NUMERO2=$2
-	RESULTADO=$(($NUMERO1/$NUMERO2))
-	echo "DIVISAO -> $NUMERO1 / $NUMERO2 = $RESULTADO"
+	
+	# Verificando se o divisor é igual a zero antes de dividir
+	if [ "$NUMERO2" -eq 0 ]
+	then
+		echo "Erro: Divisor é igual a zero, divisão não é possível."
+	else
+		RESULTADO=$(awk -v dividendo="$NUMERO1" -v divisor="$NUMERO2" 'BEGIN { printf "%.2f", dividendo / divisor }')
+		echo "DIVISAO -> $NUMERO1 / $NUMERO2 = $RESULTADO"
+	fi
 	}
 	
 	# Menu do Script.	
