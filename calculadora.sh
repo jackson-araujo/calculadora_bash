@@ -9,41 +9,41 @@ while true
 do
 	# Função recebe os dois valores numéricos e realiza a operação de soma.
 	soma () {
-	local NUMERO1=$1
-	local NUMERO2=$2
-	RESULTADO=$(($NUMERO1+$NUMERO2))
-	echo "SOMA -> $NUMERO1 + $NUMERO2 = $RESULTADO"
+		local NUMERO1=$1
+		local NUMERO2=$2
+		RESULTADO=$(($NUMERO1+$NUMERO2))
+		echo "SOMA -> $NUMERO1 + $NUMERO2 = $RESULTADO"
 	}
 	
 	# Função recebe os dois valores numéricos e realiza a operação de subtração.
 	subtracao () {
-	local NUMERO1=$1
-	local NUMERO2=$2
-	RESULTADO=$(($NUMERO1-$NUMERO2))
-	echo "SUBTRACAO -> $NUMERO1 - $NUMERO2 = $RESULTADO"
+		local NUMERO1=$1
+		local NUMERO2=$2
+		RESULTADO=$(($NUMERO1-$NUMERO2))
+		echo "SUBTRACAO -> $NUMERO1 - $NUMERO2 = $RESULTADO"
 	}
 
 	# Função recebe os dois valores numéricos e realiza a operação de multiplicação.
 	multiplicacao () {
-	local NUMERO1=$1
-	local NUMERO2=$2
-	RESULTADO=$(($NUMERO1*$NUMERO2))
-	echo "SOMA -> $NUMERO1 * $NUMERO2 = $RESULTADO"
+		local NUMERO1=$1
+		local NUMERO2=$2
+		RESULTADO=$(($NUMERO1*$NUMERO2))
+		echo "SOMA -> $NUMERO1 * $NUMERO2 = $RESULTADO"
 	}
 	
 	# Função recebe os dois valores numéricos e realiza a operação de divisão.
 	divisao () {
-	local NUMERO1=$1
-	local NUMERO2=$2
+		local NUMERO1=$1
+		local NUMERO2=$2
 	
-	# Verificando se o divisor é igual a zero antes de dividir
-	if [ "$NUMERO2" -eq 0 ]
-	then
-		echo "Erro: Divisor é igual a zero, divisão não é possível."
-	else
-		RESULTADO=$(awk -v dividendo="$NUMERO1" -v divisor="$NUMERO2" 'BEGIN { printf "%.2f", dividendo / divisor }')
-		echo "DIVISAO -> $NUMERO1 / $NUMERO2 = $RESULTADO"
-	fi
+		# Verificando se o divisor é igual a zero antes de dividir
+		if [ "$NUMERO2" -eq 0 ]
+		then
+			echo "Erro: Divisor é igual a zero, divisão não é possível."
+		else
+			RESULTADO=$(awk -v dividendo="$NUMERO1" -v divisor="$NUMERO2" 'BEGIN { printf "%.2f", dividendo / divisor }')
+			echo "DIVISAO -> $NUMERO1 / $NUMERO2 = $RESULTADO"
+		fi
 	}
 	
 	# Menu do Script.	
